@@ -15,3 +15,20 @@ Load the required packages:
 library(ggplot2)
 ggplot(mpg, aes(class)) + geom_bar()
 ```
+
+```{r}
+if (!reticulate::py_module_available('mofapy2')) {
+  cat('mofapy2 unavailable ... \n ')
+  
+  py_conf <- reticulate::py_config() %>% unclass() 
+  cat('required_module_path: \n')
+  py_conf$required_module_path
+
+  all_pys <- reticulate::py_config() %>% unclass() %>% .$python_versions
+  
+  for (py in all_pys) {
+    reticulate::use_python(py)
+    reticulate::py_module_available('mofapy2')
+  }
+}
+```

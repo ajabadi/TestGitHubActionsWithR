@@ -12,8 +12,8 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
-Imports: ggplot2
-Remotes: tidyverse/ggplot2
+Imports: ggplot2, MOFA2
+Remotes: tidyverse/ggplot2, bioFAM/MOFA2/MOFA2
 Suggests: 
     knitr,
     rmarkdown,

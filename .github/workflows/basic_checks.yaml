@@ -2,9 +2,24 @@ on: [push]
 jobs:
   job1:
     runs-on: ubuntu-latest
+    timeout-minutes: 600
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: [3.7]
     container: bioconductor/bioconductor_docker:devel
     steps:
       - uses: actions/checkout@v1
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+         python-version: ${{ matrix.python-version }}
+      - name: Install python dependencies
+        run: |
+          sudo -H apt-get update -y
+          sudo -H apt-get install -y libpython3.7
+          python -m pip install --upgrade pip
+          python -m pip install mofapy2
 
       - name: Query dependencies and update old packages
         run: |
