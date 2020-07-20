@@ -1,0 +1,18 @@
+url: https://ajabadi.github.io/TestGitHubActionsWithR
+
+template:
+  params:
+    bootswatch: flatly
+    ganalytics: UA-93043521-1
+
+home:
+  title: "TestGitHubActionsWithR"
+  type: inverse
+
+
+navbar:
+  right:
+   - icon: fa-github
+     href: https://github.com/ajabadi/TestGitHubActionsWithR
+     
+

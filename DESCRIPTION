@@ -1,0 +1,23 @@
+Package: TestGitHubActionsWithR
+Title: Test GitHub Actions
+Version: 0.1.1
+Authors@R: 
+    person(given = "Al",
+           family = "JalalAbadi",
+           role = c("aut", "cre"),
+           email = "al.jal.abadi@gmail.com")
+Description: Test GitHub Actions with R.
+License: MIT
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports: ggplot2
+Remotes: tidyverse/ggplot2
+Suggests: 
+    knitr,
+    rmarkdown,
+    pkgdown
+URL: https://github.com/ajabadi/TestGitHubActionsWithR
+BugReports: https://github.com/ajabadi/TestGitHubActionsWithR/issues/
+VignetteBuilder: knitr

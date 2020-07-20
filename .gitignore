@@ -1,0 +1,9 @@
+inst/doc
+*~
+.Rproj.user
+doc
+Meta
+.Rhistory
+
+# macOS
+.DS_Store

@@ -1,0 +1,17 @@
+---
+title: "Test GitHub Actions With R"
+author: Al JalalAbadi^[Melbourne Integrative Genomics, The University of Melbourne (al.jal.abadi@gmail.com)]
+date: "`r format(Sys.Date(), '%d %b %Y')`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{TestGitHubActionsWithR}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+Load the required packages:
+
+```{r}
+library(ggplot2)
+ggplot(mpg, aes(class)) + geom_bar()
+```
