@@ -102,22 +102,30 @@
 <div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">ggplot2</span>)
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="no">mpg</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="no">class</span>)) + <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span>()</pre></body></html></div>
 <p><img src="index_files/figure-html/unnamed-chunk-1-1.png" width="700"></p>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="kw">if</span> (!<span class="kw pkg">reticulate</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/reticulate/man/py_module_available.html">py_module_available</a></span>(<span class="st">'mofapy2'</span>)) {
+<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="kw">if</span> (<span class="kw pkg">reticulate</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/reticulate/man/py_module_available.html">py_module_available</a></span>(<span class="st">'mofapy2'</span>)) {
   <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(<span class="st">'mofapy2 unavailable ... \n '</span>)
 
+  <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(<span class="st">'python being used:\n'</span>)
+  <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/system.html">system</a></span>(<span class="st">'which python'</span>, <span class="kw">intern</span> <span class="kw">=</span> <span class="fl">TRUE</span>))
   <span class="no">py_conf</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/class.html">unclass</a></span>(<span class="kw pkg">reticulate</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/reticulate/man/py_config.html">py_config</a></span>())
-  <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(<span class="st">'required_module_path: \n'</span>)
-  <span class="no">py_conf</span>$<span class="no">required_module_path</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(<span class="st">'\nrequired_module_path: \n'</span>)
+  <span class="fu"><a href="https://rdrr.io/r/base/message.html">message</a></span>(<span class="no">py_conf</span>$<span class="no">required_module_path</span>)
 
   <span class="no">all_pys</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/class.html">unclass</a></span>(<span class="kw pkg">reticulate</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/reticulate/man/py_config.html">py_config</a></span>())$<span class="no">python_versions</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(<span class="st">'\n\nPythons:\n'</span>)
+  <span class="fu"><a href="https://rdrr.io/r/base/message.html">message</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span>(<span class="no">all_pys</span>, <span class="kw">collapse</span> <span class="kw">=</span> <span class="st">'\n'</span>))
 
   <span class="kw">for</span> (<span class="no">py</span> <span class="kw">in</span> <span class="no">all_pys</span>) {
+    <span class="fu"><a href="https://rdrr.io/r/base/message.html">message</a></span>(<span class="st">'using python: '</span>, <span class="no">py</span>, <span class="st">':\n'</span>)
     <span class="kw pkg">reticulate</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/reticulate/man/use_python.html">use_python</a></span>(<span class="no">py</span>)
-    <span class="kw pkg">reticulate</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/reticulate/man/py_module_available.html">py_module_available</a></span>(<span class="st">'mofapy2'</span>)
+    <span class="no">av</span> <span class="kw">&lt;-</span> <span class="kw pkg">reticulate</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/reticulate/man/py_module_available.html">py_module_available</a></span>(<span class="st">'mofapy2'</span>)
+    <span class="kw">if</span> (<span class="no">av</span>) {
+      <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(<span class="st">'Available!\n'</span>)
+    } <span class="kw">else</span> {
+      <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(<span class="st">'Unavailable\n'</span>)
+    }
   }
 }</pre></body></html></div>
-<pre><code>## mofapy2 unavailable ... 
-##  required_module_path:</code></pre>
 <div class="footnotes">
 <hr>
 <ol>
