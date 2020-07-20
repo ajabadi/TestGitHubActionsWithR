@@ -102,7 +102,7 @@
 <div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">ggplot2</span>)
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="no">mpg</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="no">class</span>)) + <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span>()</pre></body></html></div>
 <p><img src="index_files/figure-html/unnamed-chunk-1-1.png" width="700"></p>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="kw">if</span> (<span class="kw pkg">reticulate</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/reticulate/man/py_module_available.html">py_module_available</a></span>(<span class="st">'mofapy2'</span>)) {
+<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="kw">if</span> (!<span class="kw pkg">reticulate</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/reticulate/man/py_module_available.html">py_module_available</a></span>(<span class="st">'mofapy2'</span>)) {
   <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(<span class="st">'mofapy2 unavailable ... \n '</span>)
 
   <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(<span class="st">'python being used:\n'</span>)
@@ -126,6 +126,20 @@
     }
   }
 }</pre></body></html></div>
+<pre><code>## mofapy2 unavailable ... 
+##  python being used:
+## /usr/bin/python
+## required_module_path:</code></pre>
+<pre><code>## </code></pre>
+<pre><code>## 
+## 
+## Pythons:</code></pre>
+<pre><code>## /usr/bin/python3
+## /usr/bin/python</code></pre>
+<pre><code>## using python: /usr/bin/python3:</code></pre>
+<pre><code>## Unavailable</code></pre>
+<pre><code>## using python: /usr/bin/python:</code></pre>
+<pre><code>## Unavailable</code></pre>
 <div class="footnotes">
 <hr>
 <ol>
