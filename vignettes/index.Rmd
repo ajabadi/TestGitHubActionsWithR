@@ -16,8 +16,8 @@ library(ggplot2)
 ggplot(mpg, aes(class)) + geom_bar()
 ```
 
-```{r}
-if (reticulate::py_module_available('mofapy2')) {
+```{r, echo=TRUE}
+if (!reticulate::py_module_available('mofapy2')) {
   cat('mofapy2 unavailable ... \n ')
   
   cat('python being used:\n')
