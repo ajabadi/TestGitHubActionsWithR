@@ -17,18 +17,28 @@ ggplot(mpg, aes(class)) + geom_bar()
 ```
 
 ```{r}
-if (!reticulate::py_module_available('mofapy2')) {
+if (reticulate::py_module_available('mofapy2')) {
   cat('mofapy2 unavailable ... \n ')
   
+  cat('python being used:\n')
+  cat(system('which python', intern = TRUE))
   py_conf <- unclass(reticulate::py_config()) 
-  cat('required_module_path: \n')
-  py_conf$required_module_path
+  cat('\nrequired_module_path: \n')
+  message(py_conf$required_module_path)
 
   all_pys <- unclass(reticulate::py_config())$python_versions
+  cat('\n\nPythons:\n')
+  message(paste(all_pys, collapse = '\n'))
   
   for (py in all_pys) {
+    message('using python: ', py, ':\n')
     reticulate::use_python(py)
-    reticulate::py_module_available('mofapy2')
+    av <- reticulate::py_module_available('mofapy2')
+    if (av) {
+      cat('Available!\n')
+    } else {
+      cat('Unavailable\n')
+    }
   }
 }
 ```
