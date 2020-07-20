@@ -20,11 +20,11 @@ ggplot(mpg, aes(class)) + geom_bar()
 if (!reticulate::py_module_available('mofapy2')) {
   cat('mofapy2 unavailable ... \n ')
   
-  py_conf <- reticulate::py_config() %>% unclass() 
+  py_conf <- unclass(reticulate::py_config()) 
   cat('required_module_path: \n')
   py_conf$required_module_path
 
-  all_pys <- reticulate::py_config() %>% unclass() %>% .$python_versions
+  all_pys <- unclass(reticulate::py_config())$python_versions
   
   for (py in all_pys) {
     reticulate::use_python(py)
