@@ -17,7 +17,8 @@ ggplot(mpg, aes(class)) + geom_bar()
 ```
 
 ```{r, echo=TRUE}
-if (!reticulate::py_module_available('mofapy2')) {
+mofapy2_av <- reticulate::py_module_available('mofapy2')
+if (!mofapy2_av) {
   cat('mofapy2 unavailable ... \n ')
   
   cat('python being used:\n')
