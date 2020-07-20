@@ -4,7 +4,7 @@ author: Al JalalAbadi^[Melbourne Integrative Genomics, The University of Melbour
 date: "`r format(Sys.Date(), '%d %b %Y')`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{TestGitHubActionsWithR}
+  %\VignetteIndexEntry{Test GitHub Actions With R}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
