@@ -66,6 +66,8 @@ jobs:
 
       - name: Install dependencies
         run: |
+          sudo -H apt-get update -y
+          sudo -H apt-get install -y libpython3.7
           python -m pip install --upgrade pip
           python -m pip install mofapy2
 
