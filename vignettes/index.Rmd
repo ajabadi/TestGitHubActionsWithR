@@ -13,6 +13,7 @@ Load the required packages:
 
 ```{r}
 library(ggplot2)
+library(MOFA2)
 ggplot(mpg, aes(class)) + geom_bar()
 ```
 
