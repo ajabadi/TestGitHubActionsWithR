@@ -27,6 +27,7 @@ jobs:
           restore-keys: ${{ runner.os }}-r-1-
 
       # This lets us augment with additional dependencies
+      
       - name: Install system dependencies
         if: runner.os == 'Linux'
         env:
@@ -35,7 +36,18 @@ jobs:
           Rscript -e "remotes::install_github('r-hub/sysreqs')"
           sysreqs=$(Rscript -e "cat(sysreqs::sysreq_commands('DESCRIPTION'))")
           sudo -s eval "$sysreqs"
-          
+      
+      - uses: actions/setup-python@v1
+      - name: Set up Python
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install python dependencies
+        run: |
+          sudo -H apt-get update -y
+          sudo -H apt-get install -y libpython3.7
+          python -m pip install --upgrade pip
+          python -m pip install mofapy2
+
       - name: Install dependencies
         env:
           R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
@@ -60,17 +72,6 @@ jobs:
       #     tag_with_ref: true
       #     tag_with_sha: true
       #     tags: latest
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: ${{ matrix.python-version }}
-
-      - name: Install dependencies
-        run: |
-          sudo -H apt-get update -y
-          sudo -H apt-get install -y libpython3.7
-          python3 -m pip install --upgrade pip
-          python3 -m pip install mofapy2
 
       - name: Build pkgdown
         run: |
