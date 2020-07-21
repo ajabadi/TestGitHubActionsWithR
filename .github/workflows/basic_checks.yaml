@@ -35,6 +35,10 @@ jobs:
           Rscript -e "remotes::install_github('r-hub/sysreqs')"
           sysreqs=$(Rscript -e "cat(sysreqs::sysreq_commands('DESCRIPTION'))")
           sudo -s eval "$sysreqs"
+          sudo -H apt-get update -y
+          sudo -H apt-get install -y libpython3.7
+          python3 -m pip install --upgrade pip
+          python3 -m pip install mofapy2
           
       - name: Install dependencies
         env:
@@ -60,17 +64,6 @@ jobs:
       #     tag_with_ref: true
       #     tag_with_sha: true
       #     tags: latest
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: ${{ matrix.python-version }}
-
-      - name: Install dependencies
-        run: |
-          sudo -H apt-get update -y
-          sudo -H apt-get install -y libpython3.7
-          python3 -m pip install --upgrade pip
-          python3 -m pip install mofapy2
 
       - name: Build pkgdown
         run: |
