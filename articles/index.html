@@ -89,7 +89,7 @@
                         <h4 class="author">Al JalalAbadi<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>
 </h4>
             
-            <h4 class="date">20 Jul 2020</h4>
+            <h4 class="date">21 Jul 2020</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/ajabadi/TestGitHubActionsWithR/blob/master/vignettes/index.Rmd"><code>vignettes/index.Rmd</code></a></small>
       <div class="hidden name"><code>index.Rmd</code></div>
@@ -102,7 +102,13 @@
 <div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">ggplot2</span>)
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="no">mpg</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="no">class</span>)) + <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span>()</pre></body></html></div>
 <p><img src="index_files/figure-html/unnamed-chunk-1-1.png" width="700"></p>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="no">mofapy2_av</span> <span class="kw">&lt;-</span> <span class="kw pkg">reticulate</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/reticulate/man/py_module_available.html">py_module_available</a></span>(<span class="st">'mofapy2'</span>)
+<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">MOFA2</span>)</pre></body></html></div>
+<pre><code>## 
+## Attaching package: 'MOFA2'</code></pre>
+<pre><code>## The following object is masked from 'package:stats':
+## 
+##     predict</code></pre>
+<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="no">mofapy2_av</span> <span class="kw">&lt;-</span> <span class="kw pkg">reticulate</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/reticulate/man/py_module_available.html">py_module_available</a></span>(<span class="st">'mofapy2'</span>)
 <span class="kw">if</span> (!<span class="no">mofapy2_av</span>) {
   <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(<span class="st">'mofapy2 unavailable ... \n '</span>)
 
