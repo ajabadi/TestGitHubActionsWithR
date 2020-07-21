@@ -13,11 +13,11 @@ Load the required packages:
 
 ```{r}
 library(ggplot2)
-library(MOFA2)
 ggplot(mpg, aes(class)) + geom_bar()
 ```
 
 ```{r, echo=TRUE}
+library(MOFA2)
 mofapy2_av <- reticulate::py_module_available('mofapy2')
 if (!mofapy2_av) {
   cat('mofapy2 unavailable ... \n ')
